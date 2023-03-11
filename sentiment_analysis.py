@@ -28,7 +28,7 @@ DATA_URL= 'Hotel_Reviews_Dataset.csv'
 df = pd.read_csv(DATA_URL)
 hotel_name = df['Hotel_Name'].unique()
 selected_hotel = st.selectbox('Select Hotel',options = hotel_name,key =1)
-data = df[(df['Hotel_Name'] == selected_states)]
+data = df[(df['Hotel_Name'] == selected_hotel)]
 data["Reviews"] = data["Reviews"].astype("str")
 data["score"] = data["body"].apply(lambda x: analyzer.polarity_scores(x)["compound"])
 data["sentiment"] = np.where(data['score'] >= .5, "Positive", "Negative")
