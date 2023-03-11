@@ -109,7 +109,7 @@ with col5:
 with col6:        
 	# st.text("Negative reviews word cloud")
 	st.set_option('deprecation.showPyplotGlobalUse', False)
-	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.3)]
+	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.2)]
 	words = " ".join(df["Reviews1"])
 	wordcloud = WordCloud(stopwords=STOPWORDS, background_color="white", width=800, height=640,colormap="RdYlGn").generate(words)
 	plt.imshow(wordcloud)
