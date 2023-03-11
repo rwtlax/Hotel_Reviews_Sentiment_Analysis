@@ -51,7 +51,7 @@ with col1:
 	selected_hotel = st.selectbox('Select Hotel',options = hotel_name,key =1)
 
 with col2:
-	selected_year = st.selectbox('Select year',options = year,key =1)
+	selected_year = st.selectbox('Select year',options = year,key =2)
 	
 data = df[(df['Hotel_Name'] == selected_hotel and df['year'] == selected_year)]
 data["Reviews"] = data["Reviews"].astype("str")
