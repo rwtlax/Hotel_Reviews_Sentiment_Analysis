@@ -44,7 +44,7 @@ DATA_URL= 'Hotel_Reviews_Dataset.csv'
 df = pd.read_csv(DATA_URL)
 hotel_name = df['Hotel_Name'].unique()
 df['year'] = pd.DatetimeIndex(city_df['Review_Date']).year
-year = df['year].unique()
+year = df['year'].unique()
 col1, col2 = st.columns(2)
 
 with col1:
