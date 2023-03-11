@@ -87,8 +87,8 @@ st.markdown("-------------------------------------------------------------------
 
 st.subheader("Word Cloud for Reviews Sentiment")
 
-word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','location','service','bathroom','noise','noisy','free','lounge','comfort','comfortable','swimming pool','dirty','overpriced','ambiance','check-in','check in','check out','check-out','toilet','affordable','lift','smell','complimentary','professional','friendly']
-word_ls_emotions = ['amazing','good','excellent','bad','pathetic','disappoint']
+word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','location','service','bathroom','noise','noisy','free','lounge','comfort','comfortable','swimming pool','dirty','overpriced','ambiance','check-in','check in','check out','check-out','toilet','affordable','lift','smell','complimentary','professional','friendly','amazing','good','excellent','bad','pathetic','disappoint','rude','negative','cramped','broken','uncomfortable','positive']
+
 data['Reviews1'] = data['Reviews'].apply(lambda x: ' '.join([word for word in str(x).split() if word.lower() not in (word_ls)]))
 data['Reviews2'] = data['Reviews'].apply(lambda x: ' '.join([word for word in str(x).split() if word.lower() not in (word_ls_emotions)]))
 
