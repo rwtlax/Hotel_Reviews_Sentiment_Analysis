@@ -30,7 +30,7 @@ hotel_name = df['Hotel_Name'].unique()
 selected_hotel = st.selectbox('Select Hotel',options = hotel_name,key =1)
 data = df[(df['Hotel_Name'] == selected_hotel)]
 data["Reviews"] = data["Reviews"].astype("str")
-data["score"] = data["body"].apply(lambda x: analyzer.polarity_scores(x)["compound"])
+data["score"] = data["Reviews"].apply(lambda x: analyzer.polarity_scores(x)["compound"])
 data["sentiment"] = np.where(data['score'] >= .5, "Positive", "Negative")
 data = data[['Reviewer_Nationality','Hotel_Name','Reviews','sentiment','score','Review_Date']]
 data['Review_Date']=pd.to_datetime(data['Review_Date'])
