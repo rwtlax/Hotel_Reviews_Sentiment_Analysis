@@ -87,7 +87,7 @@ st.markdown("-------------------------------------------------------------------
 
 st.subheader("Word Cloud for Reviews Sentiment")
 
-word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','location','service','bathroom','noise','noisy','free','lounge','comfort','comfortable','swimming pool','dirty','overpriced','ambiance','check-in','check in','check out','check-out','toilet','affordable','lift','smell','complimentary','professional','friendly','amazing','good','excellent','bad','pathetic','disappoint','rude','negative','cramped','broken','uncomfortable','positive']
+word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','location','service','bathroom','noise','noisy','free','lounge','will','never','really','not','no','comfort','comfortable','swimming pool','dirty','overpriced','ambiance','check-in','check in','check out','check-out','toilet','affordable','lift','smell','complimentary','professional','friendly','amazing','good','excellent','bad','pathetic','disappoint','rude','negative','cramped','broken','uncomfortable','positive']
 
 data['Reviews1'] = data['Reviews'].apply(lambda x: ' '.join([word for word in str(x).split() if word.lower() not in (word_ls)]))
 
@@ -108,7 +108,7 @@ with col5:
 with col6:        
 	# st.text("Negative reviews word cloud")
 	st.set_option('deprecation.showPyplotGlobalUse', False)
-	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.4)]
+	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.3)]
 	words = " ".join(df["Reviews1"])
 	wordcloud = WordCloud(stopwords=STOPWORDS, background_color="white", width=800, height=640,colormap="RdYlGn").generate(words)
 	plt.imshow(wordcloud)
