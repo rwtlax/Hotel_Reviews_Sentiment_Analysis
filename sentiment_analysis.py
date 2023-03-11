@@ -16,6 +16,22 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 
+def add_bg_color():
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        primaryColor="green"
+	backgroundColor="#0E1117"
+	secondaryBackgroundColor="#262730"
+	textColor="#FAFAFA"
+	font="sans serif"
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+add_bg_color()
 
 
 st.title("Hotel Reviews Sentiment Analysis")
