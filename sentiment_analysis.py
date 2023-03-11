@@ -22,7 +22,7 @@ def add_bg_color():
     <style>
     .stApp {{
         primaryColor="green"
-	backgroundColor="#0E1117"
+	background="#0E1117"
 	secondaryBackgroundColor="#262730"
 	textColor="#FAFAFA"
 	font="sans serif"
