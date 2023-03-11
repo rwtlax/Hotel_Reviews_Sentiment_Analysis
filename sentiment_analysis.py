@@ -53,7 +53,7 @@ with col1:
 with col2:
 	selected_year = st.selectbox('Select year',options = year,key =2)
 	
-data = df[(df['Hotel_Name'] == selected_hotel & df['year'] == selected_year)]
+data = df[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year)]
 data["Reviews"] = data["Reviews"].astype("str")
 data["score"] = data["Reviews"].apply(lambda x: analyzer.polarity_scores(x)["compound"])
 data["sentiment"] = np.where(data['score'] >= .5, "Positive", "Negative")
