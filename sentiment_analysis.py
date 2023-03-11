@@ -43,12 +43,21 @@ st.markdown("-------------------------------------------------------------------
 DATA_URL= 'Hotel_Reviews_Dataset.csv'
 df = pd.read_csv(DATA_URL)
 hotel_name = df['Hotel_Name'].unique()
-selected_hotel = st.selectbox('Select Hotel',options = hotel_name,key =1)
-data = df[(df['Hotel_Name'] == selected_hotel)]
+df['year'] = pd.DatetimeIndex(city_df['Review_Date']).year
+year = df['year].unique()
+col1, col2 = st.columns(2)
+
+with col1:
+	selected_hotel = st.selectbox('Select Hotel',options = hotel_name,key =1)
+
+with col2:
+	selected_year = st.selectbox('Select year',options = year,key =1)
+	
+data = df[(df['Hotel_Name'] == selected_hotel and df['year'] == selected_year)]
 data["Reviews"] = data["Reviews"].astype("str")
 data["score"] = data["Reviews"].apply(lambda x: analyzer.polarity_scores(x)["compound"])
 data["sentiment"] = np.where(data['score'] >= .5, "Positive", "Negative")
-data = data[['Reviewer_Nationality','Hotel_Name','Reviews','sentiment','score','Review_Date']]
+data = data[['Reviewer_Nationality','Hotel_Name','Reviews','sentiment','score','Review_Date','year']]
 data['Review_Date']=pd.to_datetime(data['Review_Date'])
 data['quarter'] = pd.PeriodIndex(data.Review_Date, freq='Q')
 
