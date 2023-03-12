@@ -58,7 +58,7 @@ col3, col4 = st.columns(2)
 with col4:
 	sentiment_count = data.groupby(['sentiment'])['sentiment'].count()
 	sentiment_count = pd.DataFrame({'Sentiments':sentiment_count.index,'sentiment':sentiment_count.values})
-	fig = px.pie(sentiment_count,values='sentiment',names='Sentiments',width=550, 
+	fig = px.pie(sentiment_count,values='sentiment',names='Sentiments',color='sentiment',width=550, 
 		height=400).update_layout(title_text='Sentiment distribution', title_x=0.5)
 	st.plotly_chart(fig,use_container_width=True)
 
