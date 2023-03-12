@@ -142,7 +142,6 @@ st.subheader("Top 5 Negative Reviews:")
 
 neg = data[(data['score'] < .1)].reset_index()
 
-st.dataframe(neg)
 
 st.markdown("1. Sentiment Score: " +str(neg['score'][1]) + " - " + str(neg['Reviews'][1]))
 st.markdown("2. Sentiment Score: " +str(neg['score'][2]) + " - " + str(neg['Reviews'][2]))
