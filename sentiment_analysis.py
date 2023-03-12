@@ -68,6 +68,27 @@ with col3:
 
 st.markdown("------------------------------------------------------------------------------------")
 
+col5 = st.columns(1)
+
+with col5:
+	
+	fig = px.histogram(data, x="Reviewer_Nationality", y="sentiment",
+		histfunc="count", color="sentiment",facet_col="sentiment", 
+		labels={"sentiment": "sentiment"},width=550, height=400).update_layout(title_text='Distribution by count of sentiment', title_x=0.5)
+	st.plotly_chart(fig,use_container_width=True)
+	
+st.markdown("------------------------------------------------------------------------------------")
+
+col6 = st.columns(1)
+
+with col6:
+
+	fig1 = px.histogram(per_dt2, x= "Reviewer_Nationality", y="Sentiment_Percentage",color="sentiment" ,facet_col="sentiment", labels={"sentiment": "sentiment"},
+	width=550, height=400).update_layout(yaxis_title="Percentage",title_text='Distribution by percentage of sentiment', title_x=0.5)
+	st.plotly_chart(fig1,use_container_width=True)
+	
+st.markdown("------------------------------------------------------------------------------------")
+
 st.subheader("Word Cloud for Reviews Sentiment")
 
 word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','location','service','bathroom','noise',
@@ -77,9 +98,10 @@ word_ls = ['Room Size','room,','cleanliness','staff','food','AC','expensive','lo
 
 data['Reviews1'] = data['Reviews'].apply(lambda x: ' '.join([word for word in str(x).split() if word.lower() not in (word_ls)]))
 data['Reviews1'] = data['Reviews1'].str.replace('hotel',' ')
-col5, col6 = st.columns(2)
 
-with col5:
+col7, col8 = st.columns(2)
+
+with col7:
 	# st.text("Positive reviews word cloud")
 	st.set_option('deprecation.showPyplotGlobalUse', False)
 	df = data[(data["sentiment"]=="Positive") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] > .8)]
@@ -91,7 +113,7 @@ with col5:
 	plt.title("Positive Reviews Word Cloud")
 	st.pyplot()
 
-with col6:        
+with col8:        
 	# st.text("Negative reviews word cloud")
 	st.set_option('deprecation.showPyplotGlobalUse', False)
 	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.4)]
