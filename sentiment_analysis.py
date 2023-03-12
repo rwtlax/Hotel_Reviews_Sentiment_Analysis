@@ -51,6 +51,8 @@ per_dt2 = pd.merge(per_dt,per_dt1,how = 'left', on = 'Reviewer_Nationality')
 per_dt2['Sentiment_Percentage'] = per_dt2['0_x']/per_dt2['0_y']
 per_dt2 = per_dt2[['Reviewer_Nationality','sentiment','Sentiment_Percentage']]
 
+st.dataframe(data)
+
 st.subheader("Hotel Reviews Sentiment distribution")
 
 col3, col4 = st.columns(2)
@@ -139,7 +141,7 @@ st.write("5. Sentiment Score: " +str(pos['score'][10]) + " - " + str(pos['Review
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Top 5 Negative Reviews:")
 
-neg = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] < .5)].reset_index()
+neg = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['sentiment'] == 'Negative')].reset_index()
 
 st.dataframe(neg)
 
