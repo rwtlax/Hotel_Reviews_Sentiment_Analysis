@@ -69,7 +69,7 @@ with col3:
 	trend_dt1 = trend_dt1.sort_values(['Review_Month'],ascending=True)
 	trend_dt1.rename(columns = {0:'Sentiment_Count'}, inplace = True)
 
-	fig2 = px.line(trend_dt1, x="Review_Month", y="Sentiment_Count",width=600, 
+	fig2 = px.line(trend_dt1, x="Review_Month", y="Sentiment_Count",color='sentiment',width=600, 
 		height=400).update_layout(title_text='Trend analysis of sentiments', title_x=0.5)
 	st.plotly_chart(fig2,use_container_width=True)
 
