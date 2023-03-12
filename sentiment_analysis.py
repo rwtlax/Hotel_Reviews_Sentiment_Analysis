@@ -76,7 +76,7 @@ with col3:
 	
 	data['Review_Month'] = data['Review_Date'].dt.strftime('%m-%Y')
 	trend_dt1 = data.groupby(['Review_Month','sentiment']).size().reset_index()
-	trend_dt1 = trend_dt1.sort_values(['sentiment'],ascending=False)
+	trend_dt1 = trend_dt1.sort_values(['Review_Month'],ascending=False)
 	trend_dt1.rename(columns = {0:'Sentiment_Count'}, inplace = True)
 
 	fig2 = px.line(trend_dt1, x="Review_Month", y="Sentiment_Count", color='sentiment',width=600, 
