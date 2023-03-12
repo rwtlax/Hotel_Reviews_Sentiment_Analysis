@@ -44,6 +44,13 @@ data = data[['Reviewer_Nationality','Hotel_Name','Reviews','sentiment','score','
 data['Review_Date']=pd.to_datetime(data['Review_Date'])
 data['quarter'] = pd.PeriodIndex(data.Review_Date, freq='Q')
 
+per_dt = data.groupby(['Reviewer_Nationality','sentiment']).size().reset_index()
+per_dt = per_dt.sort_values(['sentiment'],ascending=False)
+per_dt1 = data.groupby(['brand']).size().reset_index()
+per_dt2 = pd.merge(per_dt,per_dt1,how = 'left', on = 'Reviewer_Nationality')
+per_dt2['Sentiment_Percentage'] = per_dt2['0_x']/per_dt2['0_y']
+per_dt2 = per_dt2[['Reviewer_Nationality','sentiment','Sentiment_Percentage']]
+
 st.subheader("Hotel Reviews Sentiment distribution")
 
 col3, col4 = st.columns(2)
