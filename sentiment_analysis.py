@@ -127,7 +127,7 @@ st.markdown("-------------------------------------------------------------------
 
 st.subheader("Top 5 Positive Reviews :")
 
-pos = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] > .9)].reset_index()
+pos = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] > .8)].reset_index()
 pos = pos.sort_values(['score'],ascending=False)
 st.write("1. Sentiment Score: " +str(pos['score'][6]) + " - " + str(pos['Reviews'][6]))
 st.write("2. Sentiment Score: " +str(pos['score'][7]) + " - " + str(pos['Reviews'][7]))
@@ -139,7 +139,7 @@ st.write("5. Sentiment Score: " +str(pos['score'][10]) + " - " + str(pos['Review
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Top 5 Negative Reviews:")
 
-neg = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] < .1)].reset_index()
+neg = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] < .3)].reset_index()
 st.markdown("1. Sentiment Score: " +str(neg['score'][1]) + " - " + str(neg['Reviews'][1]))
 st.markdown("2. Sentiment Score: " +str(neg['score'][2]) + " - " + str(neg['Reviews'][2]))
 st.markdown("3. Sentiment Score: " +str(neg['score'][3]) + " - " + str(neg['Reviews'][3]))
