@@ -111,18 +111,40 @@ with col5:
 	plt.title("Positive Reviews Word Cloud")
 	st.pyplot()
 
-with col6:        
-	# st.text("Negative reviews word cloud")
-	st.set_option('deprecation.showPyplotGlobalUse', False)
-	df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.4)]
-	words = " ".join(df["Reviews1"])
-	wordcloud = WordCloud(stopwords=STOPWORDS, background_color="white", width=800, height=640,colormap="RdYlGn").generate(words)
-	plt.imshow(wordcloud)
-	plt.xticks([])
-	plt.yticks([])
-	plt.title("Negative Reviews Word Cloud")
-	st.pyplot()
+# with col6:        
+	# # st.text("Negative reviews word cloud")
+	# st.set_option('deprecation.showPyplotGlobalUse', False)
+	# df = data[(data["sentiment"]=="Negative") & (df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] <=.4)]
+	# words = " ".join(df["Reviews1"])
+	# wordcloud = WordCloud(stopwords=STOPWORDS, background_color="white", width=800, height=640,colormap="RdYlGn").generate(words)
+	# plt.imshow(wordcloud)
+	# plt.xticks([])
+	# plt.yticks([])
+	# plt.title("Negative Reviews Word Cloud")
+	# st.pyplot()
 	
 st.markdown("------------------------------------------------------------------------------------")
+
+st.subheader("Top 5 Positive Reviews :")
+
+pos = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] > .9)].reset_index()
+pos = pos.sort_values(['score'],ascending=False)
+st.write("1. Sentiment Score: " +str(pos['score'][6]) + " - " + str(pos['Reviews'][6]))
+st.write("2. Sentiment Score: " +str(pos['score'][7]) + " - " + str(pos['Reviews'][7]))
+st.write("3. Sentiment Score: " +str(pos['score'][8]) + " - " + str(pos['Reviews'][8]))
+st.write("4. Sentiment Score: " +str(pos['score'][9]) + " - " + str(pos['Reviews'][9]))
+st.write("5. Sentiment Score: " +str(pos['score'][10]) + " - " + str(pos['Reviews'][10]))
+
+
+st.markdown("------------------------------------------------------------------------------------")
+st.subheader("Top 5 Negative Reviews:")
+
+neg = data[(df['Hotel_Name'] == selected_hotel) & (df['year'] == selected_year) & (data['score'] < .1)].reset_index()
+st.markdown("1. Sentiment Score: " +str(neg['score'][1]) + " - " + str(neg['Reviews'][1]))
+st.markdown("2. Sentiment Score: " +str(neg['score'][2]) + " - " + str(neg['Reviews'][2]))
+st.markdown("3. Sentiment Score: " +str(neg['score'][3]) + " - " + str(neg['Reviews'][3]))
+st.markdown("4. Sentiment Score: " +str(neg['score'][4]) + " - " + str(neg['Reviews'][4]))
+st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Reviews'][5]))
+
 	
    
