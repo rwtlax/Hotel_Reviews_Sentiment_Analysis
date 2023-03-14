@@ -153,5 +153,6 @@ st.markdown("-------------------------------------------------------------------
 st.subheader("Enter your reviews for the hotel:")
 
 st.text_area('Type here', '''
-    
     ''')
+
+st.button('Sentiment Score')
