@@ -152,5 +152,10 @@ st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Revi
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Enter your reviews for the hotel:")
 
-st.date_input(label, value=None, min_value=None, max_value=None)
-   
+st.text_area('Text to analyze', '''
+    It was the best of times, it was the worst of times, it was
+    the age of wisdom, it was the age of foolishness, it was
+    the epoch of belief, it was the epoch of incredulity, it
+    was the season of Light, it was the season of Darkness, it
+    was the spring of hope, it was the winter of despair, (...)
+    ''')
