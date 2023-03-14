@@ -149,5 +149,8 @@ st.markdown("3. Sentiment Score: " +str(neg['score'][3]) + " - " + str(neg['Revi
 st.markdown("4. Sentiment Score: " +str(neg['score'][4]) + " - " + str(neg['Reviews'][4]))
 st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Reviews'][5]))
 
-	
+st.markdown("------------------------------------------------------------------------------------")
+st.subheader("Enter your reviews for the hotel:")
+
+st.textarea()
    
