@@ -167,5 +167,5 @@ def getSentimentScore(txt):
 		else:
 			st.text('Review is Negative. Sentiment score is: '+str(sent_score))
 	else:
-		st.text('Please enter some review)
+		st.text('Please enter some review about a hotel.')
 
