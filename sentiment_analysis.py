@@ -155,4 +155,17 @@ st.subheader("Enter your reviews for the hotel:")
 text = st.text_area('Type here', '''
     ''')
 
-st.button('Sentiment Score')
+st.button('Sentiment Score', on_click =getSentimentScore(text))
+
+def getSentimentScore(txt):
+	if txt is not None:
+		sent_score = analyzer.polarity_scores(txt)
+		if sent_score >= .5:
+			st.text('Review is Positive. Sentiment score is: '+str(sent_score))
+		elif sent_score < .5 && sent_score > .4:
+			st.text('Review is Neutral. Sentiment score is: '+str(sent_score))
+		else:
+			st.text('Review is Negative. Sentiment score is: '+str(sent_score))
+	else:
+		st.text('Please enter some review)
+
