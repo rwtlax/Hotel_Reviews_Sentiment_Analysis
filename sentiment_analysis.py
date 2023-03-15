@@ -162,7 +162,7 @@ def getSentimentScore(txt):
 		sent_score = analyzer.polarity_scores(txt)
 		if sent_score >= .5:
 			st.text('Review is Positive. Sentiment score is: '+str(sent_score))
-		elif sent_score < .5 && sent_score > .4:
+		elif (sent_score < .5) and (sent_score > .4):
 			st.text('Review is Neutral. Sentiment score is: '+str(sent_score))
 		else:
 			st.text('Review is Negative. Sentiment score is: '+str(sent_score))
