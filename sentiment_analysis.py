@@ -152,7 +152,7 @@ st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Revi
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Enter your reviews for the hotel:")
 
-st.text_area('Type here', '''
+text = st.text_area('Type here', '''
     ''')
 
 st.button('Sentiment Score')
