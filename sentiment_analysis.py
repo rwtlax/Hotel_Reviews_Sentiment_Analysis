@@ -159,7 +159,7 @@ btn_pressed = st.button('Sentiment Score')
 def getSentimentScore(txt):
 	if txt is not None:
 		sent_score = analyzer.polarity_scores(txt)
-		st.text(sent_score)
+		st.text(sent_score["compound"])
 		if sent_score >= .5:
 			st.text('Review is Positive. Sentiment score is: '+str(sent_score))
 		elif (sent_score < .5) and (sent_score > .4):
