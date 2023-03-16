@@ -159,17 +159,15 @@ btn_pressed = st.button('Sentiment Score')
 def getSentimentScore(txt):
 	if txt is not None:
 		sent_score = analyzer.polarity_scores(txt)
-		st.text(sent_score["compound"])
-		if sent_score >= .5:
+		if sent_score["compound"] >= .5:
 			st.text('Review is Positive. Sentiment score is: '+str(sent_score))
-		elif (sent_score < .5) and (sent_score > .4):
-			st.text('Review is Neutral. Sentiment score is: '+str(sent_score))
+		elif (sent_score["compound"] < .5) and (sent_score["compound"] > .4):
+			st.text('Review is Neutral. Sentiment score is: '+str(sent_score["compound"]))
 		else:
-			st.text('Review is Negative. Sentiment score is: '+str(sent_score))
+			st.text('Review is Negative. Sentiment score is: '+str(sent_score["compound"]))
 	else:
 		st.text('Please enter some review about a hotel.')
 if btn_pressed:
-	st.text(text)
 	getSentimentScore(text)
 	
 		
