@@ -156,6 +156,7 @@ text = st.text_area('Type here', '''
     ''')
 btn_pressed = st.button('Sentiment Score')
 if btn_pressed:
+	st.text(text)
 	getSentimentScore(text)
 	
 def getSentimentScore(txt):
