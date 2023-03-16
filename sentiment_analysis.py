@@ -152,8 +152,7 @@ st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Revi
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Enter your reviews for the hotel:")
 
-text = st.text_area('Type here', '''
-    ''')
+text = st.text_area('Type here', ''' ''')
 btn_pressed = st.button('Sentiment Score')
 
 def getSentimentScore(txt):
@@ -161,7 +160,7 @@ def getSentimentScore(txt):
 		sent_score = analyzer.polarity_scores(txt)
 		if sent_score["compound"] >= .7:
 			st.text('Review is Positive. Sentiment score is: '+str(sent_score["compound"]))
-		elif (sent_score["compound"] < .7) and (sent_score["compound"] > .2):
+		elif (sent_score["compound"] < .7) and (sent_score["compound"] > .1):
 			st.text('Review is Neutral. Sentiment score is: '+str(sent_score["compound"]))
 		else:
 			st.text('Review is Negative. Sentiment score is: '+str(sent_score["compound"]))
