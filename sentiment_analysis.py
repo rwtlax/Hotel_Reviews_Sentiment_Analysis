@@ -128,7 +128,7 @@ st.markdown("-------------------------------------------------------------------
 
 st.subheader("Top 3 Positive Reviews :")
 
-pos = data[(data['score'] > .8)].reset_index()
+pos = data[(data['score'] > .7)].reset_index()
 pos = pos.sort_values(['score'],ascending=False)
 st.write("3. Sentiment Score: " +str(pos['score'][1]) + " - " + str(pos['Reviews'][1]))
 st.write("4. Sentiment Score: " +str(pos['score'][2]) + " - " + str(pos['Reviews'][2]))
@@ -138,7 +138,7 @@ st.write("5. Sentiment Score: " +str(pos['score'][3]) + " - " + str(pos['Reviews
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Top 3 Negative Reviews:")
 
-neg = data[(data['score'] < .1)].reset_index()
+neg = data[(data['score'] < .0)].reset_index()
 
 
 st.markdown("1. Sentiment Score: " +str(neg['score'][1]) + " - " + str(neg['Reviews'][1]))
