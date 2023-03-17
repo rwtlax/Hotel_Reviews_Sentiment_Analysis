@@ -156,7 +156,9 @@ text = st.text_area('Type here', ''' ''')
 btn_pressed = st.button('Sentiment Score')
 
 def getSentimentScore(txt):
-	if txt is not None:
+	if txt is None or txt == "":
+		st.text('Please enter some review about a hotel.')
+	elif txt is not None:
 		sent_score = analyzer.polarity_scores(txt)
 		if sent_score["compound"] >= .7:
 			st.text('Review is Positive. Sentiment score is: '+str(sent_score["compound"]))
