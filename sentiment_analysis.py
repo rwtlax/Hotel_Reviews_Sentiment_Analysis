@@ -126,19 +126,17 @@ with col6:
 	
 st.markdown("------------------------------------------------------------------------------------")
 
-st.subheader("Top 5 Positive Reviews :")
+st.subheader("Top 3 Positive Reviews :")
 
 pos = data[(data['score'] > .8)].reset_index()
 pos = pos.sort_values(['score'],ascending=False)
-st.write("1. Sentiment Score: " +str(pos['score'][6]) + " - " + str(pos['Reviews'][6]))
-st.write("2. Sentiment Score: " +str(pos['score'][7]) + " - " + str(pos['Reviews'][7]))
-st.write("3. Sentiment Score: " +str(pos['score'][8]) + " - " + str(pos['Reviews'][8]))
-st.write("4. Sentiment Score: " +str(pos['score'][9]) + " - " + str(pos['Reviews'][9]))
-st.write("5. Sentiment Score: " +str(pos['score'][10]) + " - " + str(pos['Reviews'][10]))
+st.write("3. Sentiment Score: " +str(pos['score'][1]) + " - " + str(pos['Reviews'][1]))
+st.write("4. Sentiment Score: " +str(pos['score'][2]) + " - " + str(pos['Reviews'][2]))
+st.write("5. Sentiment Score: " +str(pos['score'][3]) + " - " + str(pos['Reviews'][3]))
 
 
 st.markdown("------------------------------------------------------------------------------------")
-st.subheader("Top 5 Negative Reviews:")
+st.subheader("Top 3 Negative Reviews:")
 
 neg = data[(data['score'] < .1)].reset_index()
 
@@ -146,8 +144,6 @@ neg = data[(data['score'] < .1)].reset_index()
 st.markdown("1. Sentiment Score: " +str(neg['score'][1]) + " - " + str(neg['Reviews'][1]))
 st.markdown("2. Sentiment Score: " +str(neg['score'][2]) + " - " + str(neg['Reviews'][2]))
 st.markdown("3. Sentiment Score: " +str(neg['score'][3]) + " - " + str(neg['Reviews'][3]))
-st.markdown("4. Sentiment Score: " +str(neg['score'][4]) + " - " + str(neg['Reviews'][4]))
-st.markdown("5. Sentiment Score: " +str(neg['score'][5]) + " - " + str(neg['Reviews'][5]))
 
 st.markdown("------------------------------------------------------------------------------------")
 st.subheader("Enter your reviews for the hotel:")
